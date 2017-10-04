@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>PokeMon</title>
+        <link rel="stylesheet" type="text/css" href="pokestyle.css">
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                for(var i = 1; i < 250; i++){
+                    $('.wrapper2').append(`<img src ="https://pokeapi.co/media/img/${i}.png" + alt="${i}">`)};
+                var x; 
+                $(document).on('click', 'img', function(){
+                    var x = $(this).attr('alt');
+                $.get(`https://pokeapi.co/api/v2/pokemon/${x}/`, function(res){
+                    var name = res.name;
+                    var pic = `https://pokeapi.co/media/img/${x}.png`;
+                    var type1 = res.type;
+                    var type2 = res.type;
+                    var height = res.height;
+                    var weight = res.weight;
+                    $('#name').text(name);
+                    $('.redbox img').attr("src", pic);
+                    $('#type1').text(res.types[0].type.name);
+                    if((res.types[1]) != undefined){ 
+                        $('#type2').text(res.types[1].type.name);}
+                        else{$('#type2').text("");}
+                    $('#height').text(height);
+                    $('#weight').text(weight);
+                    console.log(type1);
+                    console.log(type2);
+                }, "json");
+              });
+            });
+         
+        </script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="wrapper2">
+                <!-- input the pokemon -->
+            </div>
+            <div class="redbox">
+                <!-- for the outside red box -->
+                <h2 id="name"></h2>
+                <img src="">
+                <h4>Type</h4>
+                <ul>
+                    <li id='type1'></li>
+                    <li id='type2'></li>
+                </ul>
+                <h4>Height</h4>
+                <p id='height'></p>
+                <h4>weight</h4>
+                <p id='weight'></p>
+            </div>
+        </div>
+    </body>
+</html>

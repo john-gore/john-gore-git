@@ -1,0 +1,127 @@
+.wrapper{
+    height: 800px;
+    width: 970px;
+    margin: 0 auto;
+    background-color:#265175;
+}
+#pythonpic img{
+    height: 80px;
+    width: 370px;
+    margin: 18px;
+    margin-right: 280px;
+    display: inline-block;
+}
+#inputbox{
+    background-color:#444444;
+    height: 60px;
+    width: 250px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+}
+#searchbox{
+    margin: 20px;
+}
+#button{
+    background: green;
+}
+.header{
+    background-color: #407aab;
+    height: 50px;
+    width: 860px;
+    margin-left: 70px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+.header h3{
+    color: white;
+    display: inline-block;
+    padding-right: 10px;
+    text-align: center;
+    margin-left: 50px;
+}
+.box1{
+    height: 230px;
+    width: 200px;
+    display: inline-block;
+    margin-left: 100px;
+}
+.box1 ul li{
+    color: white;
+    text-align: center;
+    margin: 15px;
+}
+
+.box2{
+    height: 280px;
+    width: 600px;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 10px;
+}
+.box2 p{
+    color: white;
+    text-align: center;
+}
+.word2{
+    color: yellow;
+    text-align: center;
+    font-style: italic;
+    font-size: 20px;
+}
+.word2bottom{
+    color: white;
+}
+.box3{
+    background-color:white;
+    height: 230px;
+    width: 460px;
+    display: inline-block;
+    margin: 0 10px 0 10px;
+    vertical-align: top;
+}
+.box3 h3{
+    text-align: center;
+}
+.box3 p{
+    colo;
+    text-align: center;
+}
+.box3 ul{
+    color: blue;
+    text-align: center;
+}
+.box4{
+    background-color: white;
+    height: 230px;
+    width: 460px;
+    display: inline-block;
+    margin: 0 10px 0 10px;
+    vertical-align: top;
+}
+.box4 h3{
+    text-align: center;
+}
+.box4 p{
+    text-align: center;
+}
+.box4 li{
+    text-align: center;
+    color: blue;
+}
+.footer{
+    height: 100px;
+    width: 970px;
+}
+.footer h3{
+    display: inline-block;
+    color: white;
+    margin: 30px;
+}
+.footer a{
+    color: white;
+    text-align: center;
+}
+background-image: url(python-BSD.png);
+background-size: contain;

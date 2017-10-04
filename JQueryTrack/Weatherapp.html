@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Search Weather</title>
+        <!-- <link rel="stylesheet" type="text/css" href="pokestyle.css"> -->
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('form').submit(function() {
+                    var x = $('input').val();
+                    $.get(`http://api.openweathermap.org/data/2.5/weather?q=${x}&units=imperial&APPID=ad3000138b0a366d9f8b66ddb8b33b4f`, function(res){
+                    $('#cn').text(x);
+                    $('#temp').text("Temperature:" + res.main.temp)
+                 }, 'json');
+                   return false;
+                    });
+                });
+        </script>
+    </head>
+    <body>
+        <form>
+        <input type="text" name="city">
+        <input type='submit' name='submit' value='search location'>
+        </form>
+        <h1 id='cn'></h1>
+        <p id='temp'></p>
+        
+    </body>

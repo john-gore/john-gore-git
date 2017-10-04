@@ -1,0 +1,13 @@
+.wrapper{
+    height: 1000px;
+    width: 970px;
+}
+img{
+    height: 150px;
+    width: 200px;
+}
+button{
+    display: block;
+    color: white;
+    background-color: green;
+}
