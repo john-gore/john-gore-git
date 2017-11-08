@@ -1,0 +1,32 @@
+<html lang="en">
+    <head>    
+        <title>Welcome to the Jungle!!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='thewall.css') }}">
+    </head>
+    <h1>Welcome to Kikore forest!!</h1>
+    <div id="wrapper">
+            <h3>Carve on a Tree!</h3>
+            <form action='/posted' method='POST'>
+                <label for="message">Old Oak Tree:<input type="text box" name="message" id="message"></label>
+                <input type="submit" value="Post a Tree Carving!" id="treecarving">
+            </form>
+            <div id="carving">
+                <h3>Tree Carvings!</h3>
+                {% for messages in messages %}
+                    <h3>Carving Here!</h3>
+                        <p>{{ messages['first_name']+ ' ' + messages['last_name'] }}</p>
+                        <p>{{ messages['message'] }}</p>
+                {% endfor %}
+                <div id="comment">
+                        <form action='/nail' method='POST'>
+                            <label for="comment">Parchment place:<input type="text box" name="comment" id="comment"></label>
+                            <input type="submit" value="Nail a Parchment" id="Nail a Parchment">
+                        </form>
+            </div>
+        </div>
+    </div>
+    
+</html>

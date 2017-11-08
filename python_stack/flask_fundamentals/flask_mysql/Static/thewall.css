@@ -1,0 +1,16 @@
+#wrapper{
+    height: 800px;
+    width: 970px;
+    background-color: wheat;
+}
+#message{
+    height: 50px;
+    width: 950px;
+
+}
+#carving{
+    width: 900px;
+    height: 400px;
+    overflow: scroll;
+    background-color: coral;
+}

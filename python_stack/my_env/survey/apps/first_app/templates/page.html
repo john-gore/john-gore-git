@@ -1,0 +1,23 @@
+<h1>Survey</h1>
+<div class="line">{{word}}</div>
+<form action='/create' method='POST'>
+    {% csrf_token %}
+    <label for="full_name">Full Name:<input type="text" name="full_name" id="full_name"></label>
+    <label for="dojo_location">Dojo Location:
+        <select name="dojo_location">
+            <option value="Tulsa">Tulsa</option>
+            <option value="Dallas">Dallas</option>
+            <option value="Denver">Denver</option>
+        </select>
+    </label>
+    <label for="fav_lang">Favorite Language:
+        <select name="fav_lang">
+            <option value="Python">Python</option>
+            <option value="Mean">Mean</option>
+            <option value="Java">Java</option>
+        </select>
+    </label>
+    <label for="comment">Comment:<input type="text" name="comment" id="comment"></label>
+    <input type="submit" value="Submit!">
+</form>
+<div class="line">{{somekey}}</div>

@@ -1,0 +1,83 @@
+<html>
+    {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="stylesheet" href="{% static 'css/store.css' %}"media="screen" title="no title" charset="utf-8">          
+    <title>Storefront</title>
+    <h1>Amadon Store!</h1>
+    <div id="wrapper">
+        <table>
+            <tr>
+                <td>Item</td>
+                <td>Price</td>
+                <td>Actions</td>
+            </tr>
+            <tr>
+                <form action="/checkout" method="POST">
+                    {% csrf_token %}
+                <td>Dojo Tshirt</td>
+                <td>{{ product_1 }}</td>
+                <td>
+                    <select name='quantity'>
+                            <option name='one'>1</option>
+                            <option name='two'>2</option>
+                            <option name='three'>3</option>
+                    </select>
+                        <input type='hidden' name='product_id' value='1000' />
+                        <input type='submit' value='Buy!' />
+                </td>
+                </form>
+            </tr>
+            <tr>
+                <form action="/checkout" method="POST">
+                    {% csrf_token %}
+                <td>Dojo Tshirt</td>
+                <td>{{ product_2 }}</td>
+                <td>
+                    <select name='quantity'>
+                        <option name='one'>1</option>
+                        <option name='two'>2</option>
+                        <option name='three'>3</option>
+                    </select>
+                    <input type='hidden' name='product_id' value='2000' />
+                    <input type='submit' value='Buy!' />
+                </td>
+                </form>
+            </tr>
+            <tr>
+                <form action="/checkout" method="POST">
+                    {% csrf_token %}
+                <td>Dojo Cup</td>
+                <td>{{ product_3 }}</td>
+                <td>
+                    <select name='quantity'>
+                            <option name='one'>1</option>
+                            <option name='two'>2</option>
+                            <option name= 'three'>3</option>
+                    </select>
+                        <input type='hidden' name='product_id' value='3000' />
+                        <input type='submit' value='Buy!' />
+                </td>
+                </form>
+            </tr>
+            <tr>
+                <form action="/checkout" method="POST">
+                    {% csrf_token %}
+                <td>Algorithm Book</td>
+                <td>{{ product_4 }}</td>
+                <td>
+                    <select name='quantity'>
+                            <option name='one'>1</option>
+                            <option name ='two'>2</option>
+                            <option name='three'>3</option>
+                    </select>
+                        <input type='hidden' name='product_id' value='4000' />
+                        <input type='submit' value='Buy!' />
+                    </td>
+                    </form>
+                </tr>
+        </form> 
+        </table>
+    </div>
+</html>

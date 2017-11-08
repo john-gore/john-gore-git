@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lan="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='ninjagold.css') }}">
+        <title>Great Number Game</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="goldsum">
+                <p>Gold Sum: {{ gold }}</p>
+            </div>
+            <div id="farm">
+                <form action="/process_money" method="post">
+                <h4>Farm</h4>
+                <p>Earns 10-20 gold</p>
+                <input type='submit' value="Find Gold!">
+                <input type='hidden' name="building" value="cave"></form>
+            </div>
+            <div id="cave">
+                <form action="/process_money" method="post">
+                <h4>Cave</h4>
+                <p>(Earns 5-10 Gold!)</p>
+                <input type='submit' value="Find Gold!">
+                <input type='hidden' name="building" value="cave">
+                </form>
+            </div>
+            <div id="house">
+                <form action="/process_money" method="post">
+                <h4>House</h4>
+                <p>(Earns 2-5 Gold!)</p>
+                <input type='submit' value="Find Gold!">
+                <input type='hidden' name="building" value="house">
+                </form>
+            </div>
+            <div id="casino">
+                <form action="/process_money" method="post">
+                <h4>Casino</h4>
+                <p>(Earns 0-50 Gold!)</p>
+                <input type='submit' value="Find Gold!">
+                <input type='hidden' name="building" value="casino">
+                </form>
+            </div>
+            <h1>Activities:</h1>
+            <div id='actbox'>
+                {% for i in session['activities'] %}
+                    <p>{{ i['content'] }}</p>
+                    <!-- <p>{{ i['classname'] }}</p> -->
+                {% endfor %}
+            </div>
+        </div>
+    </body>

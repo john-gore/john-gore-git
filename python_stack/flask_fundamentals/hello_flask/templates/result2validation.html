@@ -1,0 +1,39 @@
+<html>
+    <title>
+
+    </title>
+    <body>
+        <p>{{ name }}</p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        <p>{{ location }}</p>
+            <!-- {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %} -->
+        <p>{{ language }}</p>
+            <!-- {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %} -->
+        <p>{{ comment }}</p>
+        <!-- {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+        {% endwith %} -->
+    </body>
+</html>

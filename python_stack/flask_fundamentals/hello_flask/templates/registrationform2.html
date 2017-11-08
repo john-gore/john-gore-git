@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+    <title>Result</title>
+    <body>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <p>Email: {{ email }}</p>
+        <p>First Name: {{ first_name }}</p>
+        <p>Last Name: {{ last_name }}</p>
+        <p>Password: {{ password }}</p>
+        <p>Confirm pass: {{ confirmpassword }}</p>
+    </body>

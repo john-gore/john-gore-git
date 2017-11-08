@@ -1,0 +1,37 @@
+<h1>Add a New Word!!</h1>
+{% load static %}
+<style>
+    #red{
+        color: red;
+    }
+    #blue{
+        color: blue;
+    }
+    #green{
+        color: green;
+    }
+    #checkbox{
+        font-weight: bold;
+    }
+</style>
+<form action='/form' method='POST'>
+    {% csrf_token %}
+    <label for="words">Comment:<input type="text box" name="words"></label>
+    <h3>Choose a Text Color!</h3>
+    <p><input type="radio" name="color" value="red" id="red">Red</p>
+    <p><input type="radio" name="color" value="blue" id="blue">Blue</p>
+    <p><input type="radio" name="color"value="green" id="green">Green</p>
+    <p><input name="checkbox" type="checkbox" value="caps" id="checkbox">Show in BIG fonts!</p>
+    <input type="submit" value="Add to Session!">
+</form>
+    <div class="for">
+            <p>Values go here:</p>
+        {% for x in request.session.saved %}
+            <p style="color:{{ x.color }}">{{ x.dog }} ADDED AT {{ x.time }}</p>
+        {% endfor %}
+    </div>
+<form action='/clear' method='POST'>
+    {% csrf_token %}
+    <input type='submit' value="Clear">
+</form>
+

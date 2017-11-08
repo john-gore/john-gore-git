@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <title>Items</title>
+    </head>
+    <body>
+        <h1>Create a New Wish List Item!!!</h1>
+            <h4>Item/Product</h4>
+            <form action="addeditem" method='POST'>
+                {% csrf_token %}
+                <input type="text box" name="item">
+                <input type="submit" value="Add">
+            </form>
+            <a href="{% url 'root:success' %}">Home</a>
+            <a href="{% url 'root:index' %}">Logout</a>
+    </body>
+</html>

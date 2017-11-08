@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lan="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylecounter.css') }}">
+        <title>Counter</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Counter</h1>
+            <p>{{session['counter']}} time.</p>
+            <form action ="/count2" method="post">
+                <input type="submit" value="Increment Counter by 2">
+            </form>
+                <form action ="/reset" method="post">
+                    <input type="submit" value="Reset Counter">
+            </form>
+        </div>
+    </body>
+</html>

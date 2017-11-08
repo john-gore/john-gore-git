@@ -1,0 +1,45 @@
+#wrapper{
+    width: 970px;
+    height: 200px;
+    margin: 0 auto;
+    background-color: peachpuff; 
+}
+form{
+    display: block;
+}
+.hintBoxRight{
+    background-color: green;
+    height: 300px;
+}
+
+.hintBoxWrong{
+    background-color: red;
+    height: 300px;
+}
+
+#mainCont{
+    width: 50%;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+input{
+    display: block;
+    margin: 5px auto;
+}
+
+h1{
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+#hint{
+    font-size: 70px;
+    color: white;
+}
+
+form{
+    height: 50px;
+    margin: 0 auto;
+}

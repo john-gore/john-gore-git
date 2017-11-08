@@ -1,0 +1,12 @@
+
+
+
+<div class="line">{{word}}</div>
+    <form action='/' method='POST'>
+        {% csrf_token %}
+        <input type="submit" value="Get String!">
+    </form>
+    <form action='/' value="POST">
+        <input type="submit" value="Reset!">
+    </form>
+<div class="line">{{somekey}}</div>

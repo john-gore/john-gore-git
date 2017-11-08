@@ -1,0 +1,36 @@
+#wrapper{
+    height: 900px;
+    width: 970px;
+    background-color: lightgreen;
+}
+#farm{
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    background-color: lightblue;
+}
+#cave{
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    background-color: lightblue;
+}
+#house{
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    background-color: lightblue;
+}
+#casino{
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    background-color: lightblue;
+}
+#actbox{
+    border-style: solid;
+    height: 300px;
+    width: 900px;
+    background-color: wheat;
+    overflow: scroll;
+}

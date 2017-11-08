@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <title>Add Review</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <!-- need the add book button to go to the likes.html page -->
+            <!-- need the logout button to return you to the login .html page -->
+            <a href="{% url 'users:addreview' %}">Add Book and Review</a>
+            <a href="{% url 'users:index' %}">Logout</a>
+            <h1>Welcome,{{ user.first_name }}!</h1>
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <P>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="recent">
+            <h3>Recent Book Reviews</h3>
+        </div>
+        <div class="other">
+            <h3>Other Books With Reviews!</h3>
+        </div>
+        </div>
+    </body>
+</html>

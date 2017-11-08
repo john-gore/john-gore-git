@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lan="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='colorpicker.css') }}">
+        <title>Color Picker!</title>
+        <body>
+        <div id="wrapper">
+            <h1>Enter your color values below!</h1>
+            <form action="text">
+                <p>Red:</p>
+                    <input type="text" name="red">
+                <p>Green:</p>
+                    <input type="text" name="green">
+                <p>Blue:</p>
+                    <input type="text" name="blue">
+                <button>See my Color!</button>
+            </form>
+        </div>
+    </body>
+    </head>

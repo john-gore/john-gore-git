@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <title>User reviews</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <!-- need to have the home button go to the addbook.html page -->
+            <!-- need to have the add book and review button go to the like.html page -->
+            <!-- need to have the logout button go to the login .html page -->
+            <h1>User Alias: Jessie!</h1>
+            <a href="{% url 'users:bookreview' %}">Home</a>
+            <a href="{% url 'users:addreview' %}">Add Book and Review</a>
+            <a href="{% url 'users:index' %}">Logout</a>
+            <p>User Alias:{{ blank }}</p>
+            <p>Name: {{ blank }}</p>
+            <p>Email: {blank }}</p>
+            <p>Total Reviews:{{ blank }}</p>
+            <h3>Posted Reviews in the following books:</h3>
+        </div>
+    </body>
+</html>

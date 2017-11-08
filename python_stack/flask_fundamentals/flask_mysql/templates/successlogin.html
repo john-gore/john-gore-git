@@ -1,0 +1,19 @@
+<html lang="en">
+    <head>    
+        <title>Success!!</title>
+    </head>
+    <h1>Registration Successful!</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% for user in user %}
+    <p>{{ user['first_name'] }}</p>
+    <p>{{ user['last_name'] }}</p>
+    <p>{{ user['email'] }}</p>
+    <p>{{ user['password'] }}</p>
+    {% endfor %}
+</html>

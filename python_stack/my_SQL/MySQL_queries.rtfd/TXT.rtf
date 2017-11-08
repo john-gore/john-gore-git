@@ -1,0 +1,566 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fnil\fcharset0 Monaco;
+}
+{\colortbl;\red255\green255\blue255;\red93\green108\blue125;\red29\green30\blue26;\red246\green246\blue239;
+\red88\green209\blue235;\red152\green224\blue36;\red224\green213\blue97;\red157\green101\blue255;\red63\green63\blue63;
+\red0\green0\blue0;\red48\green61\blue72;\red255\green255\blue255;\red56\green174\blue112;\red213\green213\blue213;
+\red109\green109\blue109;\red238\green241\blue246;\red17\green136\blue187;\red38\green38\blue38;}
+{\*\expandedcolortbl;;\cssrgb\c43922\c50196\c56471;\cssrgb\c15294\c15686\c13333;\cssrgb\c97255\c97255\c94902;
+\cssrgb\c40000\c85098\c93725;\cssrgb\c65098\c88627\c18039;\cssrgb\c90196\c85882\c45490;\cssrgb\c68235\c50588\c100000;\cssrgb\c31373\c31373\c31373;
+\cssrgb\c0\c0\c0;\cssrgb\c24314\c30588\c35294;\cssrgb\c100000\c100000\c100000;\cssrgb\c25882\c72549\c51373;\cssrgb\c86667\c86667\c86667;
+\cssrgb\c50196\c50196\c50196;\cssrgb\c94510\c95686\c97255;\cssrgb\c0\c60392\c78039;\cssrgb\c20000\c20000\c20000;}
+\margl1440\margr1440\vieww10940\viewh12360\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 1.\
+SELECT \
+    name, language, percentage\
+FROM\
+    languages\
+        JOIN\
+    countries ON countries.id = languages.country_id\
+WHERE\
+    language = 'Slovene'\
+ORDER BY percentage DESC;\
+\
+2.\
+SELECT \
+    countries.name, COUNT(cities.name)\
+FROM\
+	cities\
+    JOIN \
+    countries ON countries.id = cities.country_id\
+    GROUP BY countries.name\
+    ORDER BY COUNT(cities.name) DESC\
+3.\
+SELECT \
+	cities.name, cities.population\
+FROM\
+    cities\
+        JOIN\
+    countries ON countries.id = cities.country_id\
+WHERE\
+    countries.name = 'Mexico' AND cities.population > 500000\
+    Order by cities.population DESC\
+\
+4.\
+SELECT \
+   name, percentage, language\
+FROM\
+	languages\
+    JOIN \
+    countries ON countries.id = languages.country_id\
+    WHERE percentage > 89\
+    ORDER BY percentage DESC\
+5.\
+SELECT \
+   name, surface_area, population\
+FROM\
+	countries\
+    WHERE surface_area  < 501 AND population > 100000\
+6.\
+SELECT \
+   name, government_form, capital, life_expectancy\
+FROM\
+	countries\
+    WHERE government_form = 'Constitutional Monarchy' AND capital > 200 AND life_expectancy > 75\
+7.\
+SELECT \
+   countries.name, cities.district, cities.name, cities.population\
+FROM\
+	cities\
+    JOIN\
+    countries ON countries.id = cities.country_id\
+WHERE countries.name = 'Argentina' AND cities.district = 'Buenos Aires' AND cities.population > 500000\
+8.\
+SELECT \
+  countries.region, COUNT(countries.name)\
+FROM\
+	countries\
+    GROUP BY countries.region\
+    ORDER BY COUNT(countries.name) DESC\
+\
+\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1\fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- Written by Todd Enders, 2017
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- 1. What query would you run to get all the countries that speak Slovene?
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- Your query should return the name of the country, language and language percentage.
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- Your query should arrange the result by language percentage in descending order.
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 SELECT
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 name
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ,
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  languages
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 language
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ,
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  languages
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 percentage\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 FROM
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries\
+	
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 JOIN
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  languages 
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ON
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 id 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 =
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  languages
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 country_id\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 WHERE
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  languages
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 language 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 =
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf6 \strokec6 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 'Slovene'
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ORDER
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 BY
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  languages
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 percentage 
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 DESC\cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ;
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- 2. What query would you run to display the total number of cities for each country?
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- Your query should return the name of the country and the total number of cities.
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- Your query should arrange the result by the number of cities in descending order.
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 SELECT
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 name
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ,
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf7 \strokec7 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 COUNT\cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 (
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 cities
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 id
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 )
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 as
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  num_cities\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 FROM
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries\
+	
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 JOIN
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  cities 
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ON
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 id 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 =
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  cities
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 country_id\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 GROUP
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 BY
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 id\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ORDER
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 BY
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  num_cities 
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 DESC\cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ;
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- 3. What query would you run to get all the cities in Mexico with a population
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- of greater than 500,000? Your query should arrange the result by population
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- in descending order.
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 SELECT
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  cities
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 name
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ,
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  cities
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 population\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 FROM
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries\
+	
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 JOIN
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  cities 
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ON
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 id 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 =
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  cities
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 country_id\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 WHERE
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 name 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 =
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf6 \strokec6 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 'Mexico'
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 AND
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  cities
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 population 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 >
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf8 \strokec8 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 500000
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ORDER
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 BY
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  cities
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 population 
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 DESC\cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ;
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- 4. What query would you run to get all languages in each country with a percentage
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- greater than 89%? Your query should arrange the result by percentage in descending order.
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 SELECT
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 name
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ,
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  languages
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 language
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ,
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  languages
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 percentage\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 FROM
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries\
+    
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 JOIN
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  languages 
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ON
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 id 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 =
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  languages
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 country_id\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 WHERE
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  languages
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 percentage 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 >
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf8 \strokec8 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 89
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ORDER
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 BY
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  languages
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 percentage 
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 DESC\cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ;
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- 5. What query would you run to get all the countries with Surface Area below 501 and
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- Population greater than 100,000? (2)
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 SELECT
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 name
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ,
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 surface_area
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ,
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 population\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 FROM
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 WHERE
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 surface_area 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 <
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf8 \strokec8 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 501
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 AND
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 population 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 >
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf8 \strokec8 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 100000\cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ;
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- 6. What query would you run to get countries with only Constitutional Monarchy with a
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- capital greater than 200 and a life expectancy greater than 75 years? (1)
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 SELECT
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 name
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ,
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 government_form
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ,
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 capital\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 FROM
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 WHERE
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 government_form 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 =
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf6 \strokec6 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 'Constitutional Monarchy'
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+	
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 AND
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 life_expectancy 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 >
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf8 \strokec8 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 75
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+	
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 AND
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 capital 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 >
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf8 \strokec8 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 200\cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ;
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- 7. What query would you run to get all the cities of Argentina inside the Buenos Aires
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- district and have the population greater than 500, 000? The query should return the
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- Country Name, City Name, District and Population. (2)
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 SELECT
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 name
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ,
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  cities
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 name
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ,
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  cities
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 district
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ,
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  cities
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 population\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 FROM
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries\
+	
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 JOIN
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  cities 
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ON
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 id 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 =
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  cities
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 country_id\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 WHERE
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 name 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 =
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf6 \strokec6 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 'Argentina'
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+	
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 AND
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  cities
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 district 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 =
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf6 \strokec6 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 'Buenos Aires'
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+	
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 AND
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  cities
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 population 
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 >
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf8 \strokec8 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 500000\cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ;
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- 8. What query would you run to summarize the number of countries in each region?
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- The query should display the name of the region and the number of countries.
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+
+\f1 \cf2 \strokec2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 -- Also, the query should arrange the result by the number of countries in descending order.
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 SELECT
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 region
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ,
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf7 \strokec7 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 COUNT\cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 (
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 id
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 )
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 AS
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  num_countries\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 FROM
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 GROUP
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 BY
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  countries
+\f1 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 .
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 region\
+
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ORDER
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 BY
+\f2 \cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0  num_countries 
+\f1 \cf5 \strokec5 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 DESC\cf4 \strokec4 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 ;
+\f2 \shad\shadx0\shady-20\shadr0\shado76 \shadc0 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f1\fs28 \cf9 \cb10 \strokec9 \shad0 \
+\pard\pardeftab720\sl380\sa200\partightenfactor0
+
+\fs36 \cf11 \cb12 \strokec11 Files\cb1 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamarb400 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clshdrawnil \clwWidth8990\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf14 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth8085\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf14 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth1304\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf14 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl340\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://s3.amazonaws.com/General_V88/boomyeah2015/codingdojo/user20564/course1049/chapter3569/MySQL_queries.rtf?AWSAccessKeyId=AKIAIAMDQXJT5BSIIHAA&Expires=1507838879&Signature=zuYbS7W4rH0ClU9p89AVPSiszog%3D&response-content-disposition=attachment%3B%20filename%3D%27John_Gore_MySQL_queries.rtf%27"}}{\fldrslt 
+\fs24 \cf13 \cb12 \strokec13 MySQL_queries.rtf}}
+\fs24 \cf10 \strokec10 \cell 
+\pard\intbl\itap1\pardeftab720\sl340\partightenfactor0
+\cf10 \cb12 October 11, 2017\cb1 \cell 
+\pard\intbl\itap1\pardeftab720\sl340\partightenfactor0
+\cf10 \cell \lastrow\row
+\pard\pardeftab720\sl340\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://learn.codingdojo.com/m/7/3569/23128#"}}{\fldrslt 
+\fs28 \cf9 \strokec9 \pard\pardeftab720\sl340\partightenfactor0
+\cf9 \cb16 \'a0\
+\pard\pardeftab720\sl340\partightenfactor0
+
+\b \cf9 Wanna see how we did it?\cb1 \
+}}\pard\pardeftab720\sl340\partightenfactor0
+
+\b\fs28 \cf9 \strokec9 \pard\pardeftab720\sl340\partightenfactor0
+
+\b0 \cf9 \cb12 \'a0No File Chosen\'a0\
+\pard\pardeftab720\sl280\qc\partightenfactor0
+
+\fs20 \cf12 \cb17 \strokec12 UPLOAD\
+\pard\pardeftab720\sl340\partightenfactor0
+
+\fs28 \cf9 \cb12 \strokec9 \'a0or\'a0\
+\pard\pardeftab720\sl280\qc\partightenfactor0
+
+\fs20 \cf12 \cb17 \strokec12 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\fs24 \cf13 \cb1 \strokec13 Privacy Policy
+\fs28 \cf18 \strokec18 \
+}

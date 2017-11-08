@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+    <html>
+{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="{% static 'css/ninja.css' %}"media="screen" title="no title" charset="utf-8">          
+        <style>
+        body {
+            padding:3%;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 70%;
+        }
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+            }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        input {
+            margin: 1%;
+            padding: 1% 2%;
+        }
+        </style>
+        <div class="wrapper">
+        <title>Users</title>
+        <h1>Users</h1>
+        <table>
+            <tr>
+                <td>Id:</td>
+                <td>Full Name:</td>
+                <td>Email:</td>
+                <td>Created At:</td>
+                <td>Actions:</td>
+            </tr>
+            {% for users in all_users %}
+            <tr>
+                <td>{{ users.id }}</td>
+                <td>{{ users.first_name }} {{ users.last_name }}</td>
+                <td>{{ users.email }}</td>
+                <td>{{ users.created_at }}</td>
+                <td>
+                    <a href="show">Show</a>
+                    <a href="edit">Edit</a>
+                    <a href="{% 'delete id = Blog.id' %}" >Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <form action="new">
+            {% csrf_token %}
+            <input type='hidden' name='add' />
+            <input type='submit' value='Add a new user!' />
+        </form>
+    </div>
+</html>

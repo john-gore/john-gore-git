@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <title>Items</title>
+    </head>
+    <body>
+        <a href="{% url 'root:success' %}">Home</a>
+        <a href="{% url 'root:index' %}">Logout</a>
+        {% for items in item %}
+        <h1> {{ items.name }}</h1>
+        {% endfor %}
+        <h3>User List of who added this item to their wishlist!!</h3>
+        <h4>{{Blank}}Needs to be list of users inserted!!</h4>
+    </body>
+</html>

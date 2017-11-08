@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <title>Add Book and Review</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <a href="{% url 'users:addreview' %}">Add Book and Review</a>
+            <a href="{% url 'users:index' %}">logout</a>
+            <h1>{{ blank }}</h1>
+            <!-- need to have the home button go to the addbook.html page -->
+            <!-- need to have the logout button go to the login .html page -->
+            <h3>Authors: {{ blank }}</h3>
+            <div id="reviews">
+                <h3>Reviews:</h3>
+            </div>
+            <div id="add_review">
+                <form action="register" method='POST'>
+                        {% csrf_token %}
+                    <h3>Add a Review:</h3>
+                    <input type="text box" name="review">
+                        <select>
+                            <option name="number" value="1">1</option>
+                            <option name="number" value="2">2</option>
+                            <option name="number" value="3">3</option>
+                            <option name="number" value="4">4</option>
+                            <option name="number" value="5">5</option>                           
+                        </select>
+                    <input type="submit" value="Submit this Review!">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
