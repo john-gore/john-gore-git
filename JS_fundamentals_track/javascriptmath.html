@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Basics I</title>
+    </head>
+    <body>
+        <!-- <script>
+            function zero_negativity(arr){
+                for(let x = 0; x < arr.length; x++){
+                    if(arr[x] < 0);
+                    return false;
+                }
+            };
+            console.log(zero_negativity([1,3,5,-6]));
+        </script> -->
+        <!-- <script>
+            function is_even(x){
+                if(x % 2 === 0){
+                    return 'True';
+                }
+                else{
+                    return 'False';
+                }
+            }
+            console.log(is_even(11));
+        </script> -->
+        <!-- <script>
+            var count = 0;
+            function how_many_even(i){
+                for(let x = 0; x < i.length; x++){
+                    if(x % 2 === 0){
+                        count ++
+                    }
+                }
+                return count;
+            }
+            console.log(how_many_even([1,2,3,4,5,6]));
+        </script> -->
+        <!-- <script>
+            function create_dummy_array(num) {
+                const arr = [];
+                for (let i = 0; i < num; i++) {
+                    arr.push(Math.floor(Math.random() * 10));
+                }
+                return arr;
+            }
+            console.log(create_dummy_array(6));
+        </script> -->
+        <script>
+            function randomChoice(arr) {
+			let index = Math.floor(Math.random() * arr.length);
+			return arr[index];
+		}
+            console.log(randomChoice([1,2,3,4,5,6,7,8,9]));
+        </script>
+    </body>
+</html>

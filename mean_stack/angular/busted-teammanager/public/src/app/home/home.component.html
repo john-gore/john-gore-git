@@ -1,0 +1,16 @@
+<a [routerLink] = "['/']">List</a>
+<a [routerLink] = "['addplayer']">Add Player</a>
+
+<h1>Show all Players</h1>
+    <table>
+        <tr>
+            <th>Name:</th>
+            <th>Position:</th>
+            <th>Delete:</th>
+        </tr>
+        <tr *ngFor = 'let player of players'>
+            <th>{{ player.name }}</th>
+            <th>{{ Payer.position }}</th>
+            <th>Delete Button</th>
+        </tr>
+    </table>

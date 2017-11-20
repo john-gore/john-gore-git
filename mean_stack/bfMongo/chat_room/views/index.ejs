@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type = "text/javascript" src = "/socket.io/socket.io.js"></script>
+    <script type = "text/javascript"> 
+        if (mes === undefined){
+                var mes = [];
+            }
+        else{
+            mes = mes;
+        }
+        $(document).ready(function(){
+            var socket = io.connect();
+            
+            if (name === undefined){
+                var name = prompt("Enter your name", "Name");
+                var smessage = ("Entered the chat room.");
+                var message = {name: name, mess: smessage};
+                socket.emit("user", message);
+            }
+            else{
+                var x = 0;
+            }
+            $('#send').click(function(){
+                var message = {name: name, mess: $('[name="chat"]').val()};
+                socket.emit('send', message);
+            })
+
+            socket.on('server_response', function(message){
+                mes.push(message);
+                for (x in mes){
+                    if (x==0){
+                        console.log(message)
+                        var target = document.getElementById("target");
+                        var p = document.createElement('p');
+                        p.innerHTML = message.name+": "+message.mess
+                        target.appendChild(p);
+                    }
+                    else{
+                        var i = 0;
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>Conversation Board</h2>
+    <div id = 'target'>
+        
+    </div>
+    <form>
+        <input type = 'text' name = 'chat'>
+    <button type = "button" id = "send">Send</button>
+    </form>
+</body>
+</html>

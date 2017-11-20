@@ -1,0 +1,12 @@
+<h1>Show all Notes!</h1>
+  <table>
+    <tr>
+      <th>Note:</th>
+      <th>Date:</th>
+    </tr>
+    <tr *ngFor='let note of notes'>
+      <td>{{ note.note }}</td>
+      <td>Note on: {{ note.createdAt }}</td>
+    </tr>
+
+  </table>

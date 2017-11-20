@@ -1,0 +1,14 @@
+<div id="create">
+  <h1>
+    Create a New Product!
+  </h1>
+  <form (submit)="onSubmit()">
+    <h3>Title<input type="text" required minlength='4' name="title" [(ngModel)]="newProduct.title"></h3>
+    <h3>Price<input type="text" required name = "price" [(ngModel)]="newProduct.price"></h3>
+    <h3>Image Url<input type="text" name="imgUrl" [(ngModel)]="newProduct.imgUrl"></h3>
+    <div class="button">
+      <input type="submit" name="submit" value="submit">
+    </div>
+  </form> 
+  {{ newProduct | json }}
+</div>

@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    PPM - Project Product Managment
+  </h1>
+</div>
+<div id="links">
+  <a [routerLink]="['/']">Home</a>
+  <a [routerLink]="['products']">Product List</a>
+  <a [routerLink]="['products/new']">Product Create</a>
+  <a [routerLink]="['products/edit/:id']">Product Edit</a>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,10 @@
+<h1>New Question!</h1>
+<form (submit)='onSubmit()' #formData='ngForm'>
+  <p>Question: <input name='question' type='text' [(ngModel)] = 'question.question' required minlength="15"></p>
+  <p>Correct Answer: <input name='correct_answer' type='text' [(ngModel)] = 'question.correct_answer' required ></p>
+  <p>Fake Answer 1: <input name='false_answer1' type='text' [(ngModel)] = 'question.false_answer1' required></p>
+  <p>Fake Answer 2: <input name='false_answer2' type='text' [(ngModel)] = 'question.false_answer2' required></p>
+  <input type="submit" name="" value="Add Question!"  [disabled]="!formData.valid">
+</form>
+<button (click)="cancel()">Cancel!!</button>
+  {{ formData.valid | json }}

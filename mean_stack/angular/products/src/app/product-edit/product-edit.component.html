@@ -1,0 +1,10 @@
+<form (submit)="update()">
+<div id="edit">
+  <h1>Edit Product</h1>
+  <h3>Title<input type="text" name="title" [(ngModel)] = "product.title"></h3>
+  <h3>Price<input type="text" name="price" [(ngModel)] = "product.price"></h3>
+  <h3>Image Url<input type="text" name="imgUrl" [(ngModel)] = "product.imgUrl"></h3>
+  <input class="submit" type="submit" value="UPDATE">
+  
+</div>
+</form>

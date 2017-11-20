@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Fib + Nacci</title>
+</head>
+<body>
+    <script>
+        function fib() {
+            let prev = 0;
+            let curr = 1;
+            function nacci() {
+                const temp = prev;
+                console.log(curr);
+                prev = curr;
+                curr = curr + temp;
+            }
+            return nacci
+            }
+            var fibCounter = fib();
+            fibCounter() // should console.log "1"
+            fibCounter() // should console.log "1"
+            fibCounter() // should console.log "2"
+            fibCounter() // should console.log "3"
+            fibCounter() // should console.log "5"
+            fibCounter() // should console.log "8"
+    </script>
+</body>
+</html>
