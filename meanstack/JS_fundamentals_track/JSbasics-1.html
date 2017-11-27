@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Basics I</title>
+    </head>
+    <body>
+        <script>
+            var x = [];
+            x.push('coding');
+            x.push('dojo');
+            x.push('rocks');
+            x.pop();
+            console.log(x);
+            // went through the first time and added eahc of the words. then .pop() removed the last word added.
+        </script> -->
+        <script>
+            const y = [];
+            y.push(88);
+            console.log(y);
+            // added 88 to the array
+        </script>
+        <script>
+            var z = [9, 10, 6, 5, -1, 20, 13, 2];
+            for(let x = 0; x < z.length-1; x++){
+                console.log(z[x]);
+            };
+            // actually went through and returned all of the numbers. need to watch the array length though!!!
+        </script>
+        <script>
+            var names = ['Kadie', 'Joe', 'Fritz', 'Pierre', 'Alphonso'];
+                for(let x = 0; x < names.length; x++){
+                    if(names[x].length === 5){
+                    console.log(names[x]);}    
+                };
+        </script>
+        <script>
+            function yell(string) {
+		        return string.toUpperCase();
+	            };
+	                console.log(yell("hello world"));
+        </script>
+    </body>
+</html>

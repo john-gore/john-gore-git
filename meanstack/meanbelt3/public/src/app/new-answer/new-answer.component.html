@@ -1,0 +1,13 @@
+<h1>Add Your Answer!</h1>
+<button (click)="home()">Home</button>
+<button (click)="question()">Back to Question</button>
+<button (click)="logout()">Logout</button>
+
+
+<form (submit)='onSubmit()' #formData='ngForm'>
+  <p>Answer: <input name='question' type='text' [(ngModel)] = 'answer.answer' required minlength="5"></p>
+  <p>Details: <input name='description' type='text' [(ngModel)] = 'answer.details'></p>
+  <input type="submit" name="" value="Add Answer!"  [disabled]="!formData.valid">
+</form>
+<button (click)="cancel()">Cancel!!</button>
+  {{ formData.valid | json }}

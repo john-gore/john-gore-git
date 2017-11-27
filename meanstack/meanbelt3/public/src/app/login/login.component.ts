@@ -1,0 +1,27 @@
+import { Component, OnInit } from '@angular/core';
+import { User } from './../user';
+import { Question } from './../question';
+import { UserService } from './../user.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+  user: User = new User();
+  users: Array<User>;
+  switch: boolean = true;
+  constructor(private _usersService: UserService, private _router: Router ) { }
+
+  ngOnInit() {
+  }
+
+  onSubmit() {
+    console.log(this.user);
+    this._usersService.loginUser(this.user);
+    this.user = new User();
+  }
+
+}

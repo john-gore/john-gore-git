@@ -1,0 +1,6 @@
+<form (submit)='onSubmit()' #formData='ngForm'>
+    <p>Name: <input name='name' type='text' [(ngModel)] = 'user.name' required minlength="3"></p>
+    <input type="submit" name="" value="Login!"  [disabled]="!formData.valid">
+  </form>
+    
+    {{ formData.valid | json }}

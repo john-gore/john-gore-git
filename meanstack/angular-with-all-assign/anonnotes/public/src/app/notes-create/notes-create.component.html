@@ -1,0 +1,6 @@
+<h1>Add Note!</h1>
+  <form (submit)='onSubmit()'>
+    <p>Note: <input name='note' type='text' [(ngModel)] = 'note.note'></p>
+    <input type="submit" name="" value="Add Note!">
+  </form>
+  {{ note | json }}

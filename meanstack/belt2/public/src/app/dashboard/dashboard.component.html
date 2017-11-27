@@ -1,0 +1,36 @@
+
+<div id="wrapper" >
+    <div id="game">
+        <button (click)="home()">Home</button>
+        <button (click)="logout()">Logout</button>
+      </div>
+    <div  style="text-align:center">
+      <h1>
+        Welcome user logged in name!
+      </h1>
+    </div>
+    <div class="addproduct">
+      <form (submit)='onSubmit()' #formData='ngForm'>
+        <p>Title: <input type="text" name="name" required minlength ='5' [(ngModel)]='bucket.title'></p>
+        <p>Description: <input type="text" name="description" required minlength ='10' [(ngModel)]='bucket.description'></p>
+        <select>
+         <option *ngFor='let user of users' value="{{add.addedname}}">{{user.name}}</option>
+        </select>
+        <input type="submit" name="submit" value="Add trip!!!" [disabled]="!formData.valid">
+      </form>
+      {{ formData.valid | json }}
+    
+    </div>
+    
+    <h3>Before I die I want to...</h3>
+    <div id="trips" *ngFor='let bucket of buckets'>
+        <h3>{{ bucket.title }} | {{ bucket.description }}</h3>
+    </div>
+    <h1>{{ form[0].addedname }}</h1>
+
+
+
+
+        <div id="userlist" *ngFor='let user of users'>
+          <button (click)="show(user._id)">{{ user.name }}</button>
+

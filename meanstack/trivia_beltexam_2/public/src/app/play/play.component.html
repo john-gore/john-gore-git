@@ -1,0 +1,12 @@
+<h1>Hi USERNAME!!!</h1>
+<p>Choose an answer for each of the following quesitons and submit an answer once done!</p>
+
+
+    <div *ngFor='let question of questions'>
+      <p>{{ question.question }}</p>
+      <p>{{ question.correct_answer }}</p>
+      <p>{{ question.false_answer1 }}</p>
+      <p>{{ question.false_answer2 }}</p>
+    </div>
+  
+    <button (click)="onSubmit()">Submit Answer!!</button>

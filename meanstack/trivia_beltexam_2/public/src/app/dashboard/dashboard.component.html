@@ -1,0 +1,30 @@
+
+<div id="wrapper" >
+    <div  style="text-align:center">
+      <h1>
+        Welcome to Trivia!
+      </h1>
+    </div>
+    <div id="game">
+        <button (click)="home()">Home</button>
+        <button (click)="play()">Play</button>
+        <button (click)="addnew()">Add New Question!!!</button>
+        <button (click)="logout()">Logout</button>
+      </div>
+    </div>
+    
+  Search bar:<input type="text">
+    <table>
+        <tr>
+          <th>Name:</th>
+          <th>Score:</th>
+          <th>Percentage:</th>
+        </tr>
+        <tr *ngFor='let user of users'>
+          <td>{{ user.name }}</td>
+          <td>{{ user.score }}</td>
+          <td>{{ user.percentage }}</td>
+        </tr>
+      </table>
+
+

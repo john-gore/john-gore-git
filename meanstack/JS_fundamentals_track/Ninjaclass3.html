@@ -1,0 +1,68 @@
+<html>
+    <body>
+        <h1>Ninjas 3</h1>
+        <ul id="main"> 
+        </ul> 
+    <script>
+        // function Ninja(name){
+        //     var self = this;
+        //     this.name = name;
+        //     this.health = 100;
+        //     var speed = 3;
+        //     var strength = 3;
+        //     this.sayName = function(){
+        //         console.log("My name is " + this.name + "!");
+        //     }
+        //     this.showStats = function(){
+        //         console.log("Name: " + this.name + ", " + "Health: " + this.health + ", " + "Speed: " + speed + ", " + "Strength: " + strength);
+        //     }
+        //     this.drinkSake = function(){
+        //         this.health += 10;
+        //     }
+        //     this.Kick = function(target){
+        //         target.health -= 15
+        //     }
+        //     this.Punch = function(target){
+        //         target.health -= 5
+        //     }
+        // }
+        class Ninja {
+            constructor(name){
+            this.name = name;
+            this.health = 100;
+            this.speed = 3;
+            this.strength = 3;
+            }
+            sayName(){
+                console.log(`My Name is ${this.name}!` )
+            }
+            showStats(){
+                console.log(`My health is ${this.health} and my speed is ${this.speed} and my strength is ${this.strength}`)
+            }
+            drinkSake(){
+                this.health += 10
+            }
+        }
+        class super_sensie extends Ninja{
+            constructor(name){
+                super(name);
+                this.name = name;
+                this.health = 200;
+                this.speed = 10;
+                this.strength = 10;
+                this.wisdom = 10;
+            }
+            speakWisdom(){
+                super.drinkSake();
+                    console.log("What one programmer can do in one month, two programmers can do in two months.")
+            }
+        }
+
+        let super_sensie1 = new super_sensie('The Rock');
+        super_sensie1.speakWisdom();
+        super_sensie1.showStats();
+
+        
+    </script>   
+    </body>
+</html>

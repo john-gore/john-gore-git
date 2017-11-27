@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Diablo Chat</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type = "text/javascript" src = "/socket.io/socket.io.js"></script>
+    <script type = "text/javascript">
+    if (mes === undefined){
+                var mes = [];
+            }
+        else{
+            mes = mes;
+        }
+    $(document).ready(function(){
+        var socket = io.connect();
+        if (name === undefined){
+            var name = prompt("What is your name?", "Name");
+            var smessage = ("Entered chat Room!");
+            var message = {name: name, mess: smessage};
+            socket.emit("user", message);
+        }
+        else{
+            var x = 0;
+        }
+        $('#send').click(function(){
+            var message = {name: name, mess: $('[name="chat"]').val()};
+            socket.emit('send', message);
+        })
+        socket.on('server_response', function (message){
+            mes.push(message);
+            for(x in mes){
+                if(x == 0){
+                    console.log(message)
+                    var target = document.getElementById("form");
+                    var p = document.createElement('p');
+                    p.innerHTML = message.name+": "+message.mess
+                    target.appendChild(p);
+                }
+            else{
+                var i = 0;
+                }
+            }
+        });
+    });
+        
+        
+        
+        
+        //     io = io.connect();
+        // io.emit('got_a_new_user', {name: name})
+        // app.io.route('got_a_new_user', function (req){
+        //     req.data.name
+        //     app.io.broadcast('new_user', {new_user_name: req.data.name});
+        //     req.io.emit('existing_users', users);
+        // })
+        // var users ={};
+
+        // users[]
+
+        // io.on('new_user', function(data){
+        //     //where we render the new data into the html page!
+        // })
+
+
+    </script>
+</head>
+<body>
+    <div id="form">
+        <h3>Unholy Conversation:</h3>
+            <form>
+                <input type = 'text' name = 'chat'>
+            <button type = "button" id = "send">Send</button>
+        </form>
+    </div>
+    </body>
+</html>
+    

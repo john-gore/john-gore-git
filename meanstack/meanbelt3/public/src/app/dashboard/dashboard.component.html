@@ -1,0 +1,33 @@
+
+<div id="wrapper" >
+    <div  style="text-align:center">
+      <h1>
+        Hi {{ user.name }}
+      </h1>
+    </div>
+    <div id="game">
+        <button (click)="home()">Home</button>
+        <button (click)="addnew()">Add New Question!!!</button>
+        <button (click)="logout()">Logout</button>
+      </div>
+    </div>
+    
+  Search bar:<input type="text">
+    <table>
+        <tr>
+          <th>Question:</th>
+          <th>Description:</th>
+          <th>Question Answers:</th>
+          <th>Show Question:</th>
+          <th>New Answer:</th>
+        </tr>
+        <tr *ngFor='let question of questions'>
+          <td>{{ question.question }}</td>
+          <td>{{ question.description }}</td>
+          <td>{{ question.answers }}</td>
+          <td><button (click)="questiondetails(question._id)">Question</button></td>
+          <td><button (click)="answer(question._id)">New Answer</button></td>
+        </tr>
+      </table>
+
+

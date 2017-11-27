@@ -1,0 +1,9 @@
+<h1>Users name Bucket List!!!</h1>
+<div class="addproduct">
+    <form (submit)='update()' #formData='ngForm'>
+      <p>Name: <input type="text" name="name" required minlength ='2' [(ngModel)]='user.name'></p>
+      
+      <input type="submit" name="submit" value="Click!!!">
+    </form>
+  <a [routerLink]="['/dashboard']">Home</a>
+</div>

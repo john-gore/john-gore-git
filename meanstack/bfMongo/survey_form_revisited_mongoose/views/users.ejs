@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Main Page</title>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+            <script type ="text/javascript">
+                    $(document). ready(function(){
+                    // this triggers the connection event in our server!
+                    var socket  = io.connect();
+                    // we'll write all the socket stuff after the above line!
+                    
+                    $('button').click(function (data){
+                        var data = {
+                            name:$('[name="name"]').val(),
+                            location:$('[name="location"]').val(),
+                            language:$('[name="language"]').val(),
+                            comment:$('[name="comment"]').val(),
+                        }
+                        document.getElementById("p1").innerHTML = data.name,
+                        document.getElementById("p2").innerHTML = data.location,
+                        document.getElementById("p3").innerHTML = data.language,
+                        document.getElementById("p4").innerHTML = data.comment,
+
+                    socket.emit( "button_clicked", data,
+                        console.log(data.name),
+                        console.log(data.location),
+                        console.log(data.language),
+                        console.log(data.comment),
+                        );
+                    socket.on( 'server_response', function (data){
+                            console.log( 'The server says: '  + data.response);
+                        })
+                    })
+                });
+            </script>
+            <style>
+                h1 {
+                    color: wheat;
+                    font-style: bold;
+                }
+            </style>
+    </head>
+    <body>
+        <div id="form">
+            <div id="Data">
+                <h1 id="p1"></h1>
+                <h1 id="p2"></h1>
+                <h1 id="p3"></h1>
+                <h1 id="p4"></h1>
+
+            </div>
+            <form action='/users' method='POST'>
+                <h2>Your Name:<input type = "text box" name="name"></h2>
+                <h3>Dojo Location:<select name="location">
+                    <option value = "Tulsa">Tulsa</option>
+                    <option value = "OKC">OKC</option>
+                    <option value = "Denver">Denver</option>    
+                </select></h3>
+                <h3>Favorite Language:<select name="language">
+                    <option value = "MEAN">MEAN</option>
+                    <option value = "Python">Python</option>
+                    <option value = "Jave">Java</option>
+                </select></h3>
+                <h3>Comment (optional):</h3>
+                <input type="text box" name="comment">
+                <button type="submit">Submit</button>
+            </form>
+            <button>Click Me!</button>
+        </div>
+    </body>
+</html>
+    
