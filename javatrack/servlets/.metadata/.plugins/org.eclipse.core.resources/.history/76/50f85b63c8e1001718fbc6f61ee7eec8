@@ -1,0 +1,22 @@
+package com.codingdojo.javabelt1.services;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.codingdojo.javabelt1.models.Subscription;
+import com.codingdojo.javabelt1.repositories.RoleRepository;
+import com.codingdojo.javabelt1.repositories.SubscriptionRepository;
+import com.codingdojo.javabelt1.repositories.UserRepository;
+
+@Service
+public class SubscriptionService {
+	private SubscriptionRepository subRepo;
+	
+	public SubscriptionService(SubscriptionRepository subRepo)     {
+        this.subRepo = subRepo;
+    }
+	
+	public void save(Subscription newsubscription) {
+		subRepo.save(newsubscription);
+	}
+}

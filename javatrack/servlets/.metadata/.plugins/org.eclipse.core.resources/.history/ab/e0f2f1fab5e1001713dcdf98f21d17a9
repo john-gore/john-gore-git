@@ -1,0 +1,5 @@
+package com.codingdojo.javabelt1.validators;
+
+public class UserValidator {
+
+}

@@ -1,0 +1,40 @@
+package com.codingdojo.javabelt1.services;
+
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.codingdojo.javabelt1.models.Subscription;
+import com.codingdojo.javabelt1.repositories.SubscriptionRepository;
+
+
+@Service
+public class SubscriptionService {
+	private SubscriptionRepository subRepo;
+	
+	public SubscriptionService(SubscriptionRepository subRepo)     {
+        this.subRepo = subRepo;
+    }
+	
+	public void save(Subscription newsubscription) {
+		subRepo.save(newsubscription);
+	}
+
+	public List<Subscription> findAll() {
+		return subRepo.findAll();
+	}
+	
+	public Subscription findOne(Long id) {
+		return subRepo.findOne(id);
+	}
+
+	public void delete(Subscription currSubscription) {
+		subRepo.delete(currSubscription);
+		
+	}
+
+	public List<Subscription> findAvialable() {
+		return subRepo.findAvialable(true);
+	}
+}

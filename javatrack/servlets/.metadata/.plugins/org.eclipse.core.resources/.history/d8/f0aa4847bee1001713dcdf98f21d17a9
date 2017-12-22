@@ -1,0 +1,5 @@
+package com.codingdojo.javabelt1.services;
+
+public class SubscriptionService {
+
+}

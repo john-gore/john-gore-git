@@ -1,0 +1,27 @@
+package com.codingdojo.javabelt2.services;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.codingdojo.javabelt2.models.User;
+import com.codingdojo.javabelt2.repositories.PostRepository;
+import com.codingdojo.javabelt2.repositories.UserRepository;
+
+
+@Service
+public class UserService {
+	private UserRepository userRepository;
+    private PostRepository postRepository;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    
+    public UserService(UserRepository userRepository, PostRepository postRepository, BCryptPasswordEncoder bCryptPasswordEncoder)     {
+        this.userRepository = userRepository;
+        this.postRepository = postRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+
+    public void saveUser(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+    }
+}

@@ -1,0 +1,25 @@
+body{
+  text-align: center;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+div {
+  width: 50%;
+  height: 250px;
+  display: inline-block;
+  margin: 10px;
+}
+
+.result {
+	width:200px; 
+	height:200px; 
+}
+
+.red {
+	background-color: red;
+}
+
+.green {
+	background-color: green;
+}

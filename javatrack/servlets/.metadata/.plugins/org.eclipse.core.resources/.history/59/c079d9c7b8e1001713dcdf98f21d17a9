@@ -1,0 +1,69 @@
+package com.codingdojo.javabelt1.models;
+
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
+
+
+@Entity
+@Table(name="packages")
+public class Package {
+	
+	@Id
+	@GeneratedValue
+	private long id;
+	
+	@Size(min=1, message="Package name cannot be blank.")
+	private String packageName;
+	
+	@Column
+    @Min(1)
+	private Double cost;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="user_id")
+	private User poster;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getPackageName() {
+		return packageName;
+	}
+
+	public void setPackageName(String packageName) {
+		this.packageName = packageName;
+	}
+
+	public Double getCost() {
+		return cost;
+	}
+
+	public void setCost(Double cost) {
+		this.cost = cost;
+	}
+
+	public User getPoster() {
+		return poster;
+	}
+
+	public void setPoster(User poster) {
+		this.poster = poster;
+	}
+	
+	
+}

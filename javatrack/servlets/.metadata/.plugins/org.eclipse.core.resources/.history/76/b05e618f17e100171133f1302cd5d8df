@@ -1,0 +1,5 @@
+package com.codingdojo.poolrental.models;
+
+public class Review {
+
+}

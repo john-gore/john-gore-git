@@ -1,0 +1,48 @@
+.container {
+	padding: 0 20px;
+}
+#gold {
+	padding: 5px 20px;
+}
+
+.border {
+	border: 2px solid black;
+}
+.row {
+    width: 100%;
+    display: inline-block;
+}
+
+.task {
+	margin-top: 20px;
+	text-align: center;
+    width: 20%;
+    display: inline-block;
+    padding-bottom: 20px;
+    margin-right: 5%;
+}
+
+.task:last-child {
+	margin-right: 0;
+}
+
+.activity {
+    width: 100%;
+    height: auto;
+    overflow: scroll;
+    display: inline-block;
+}
+
+ul {
+    list-style: none;
+    height: 300px;
+    overflow: scroll;
+}
+
+.green {
+    color: green
+}
+
+.red {
+    color: red
+}

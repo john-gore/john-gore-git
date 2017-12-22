@@ -1,0 +1,5 @@
+package com.kenny.springevents.services;
+
+public class MessageService {
+
+}

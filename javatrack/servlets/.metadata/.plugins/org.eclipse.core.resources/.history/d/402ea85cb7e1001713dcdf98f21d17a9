@@ -1,0 +1,10 @@
+package com.codingdojo.javabelt1.models;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="packages")
+public class Package {
+
+}

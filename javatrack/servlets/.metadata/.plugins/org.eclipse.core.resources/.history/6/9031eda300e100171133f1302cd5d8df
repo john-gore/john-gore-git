@@ -1,0 +1,33 @@
+package com.kenny.springevents.services;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.kenny.springevents.models.GetTogether;
+import com.kenny.springevents.repositories.GetTogetherRepository;
+
+@Service
+public class GetTogetherService {
+
+	private GetTogetherRepository getTogetherRepo;
+	
+	public GetTogetherService(GetTogetherRepository getTogetherRepository) {
+		getTogetherRepo = getTogetherRepository;
+	}
+	public List<GetTogether> findByStateLike(String state) {
+		return getTogetherRepo.findByStateLike(state);
+	}
+	
+	public List<GetTogether> findByStateNotLike(String state) {
+		return getTogetherRepo.findByStateNotLike(state);
+	}
+	
+	public GetTogether findOne(Long id) {
+		return getTogetherRepo.findOne(id);
+	}
+	
+	public void save(GetTogether getTogether) {
+		getTogetherRepo.save(getTogether);
+	}
+}

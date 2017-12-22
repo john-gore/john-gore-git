@@ -1,0 +1,17 @@
+
+public class Dragon extends Mammal{
+	public void fly() {
+		System.out.println("The Gorilla throws a banana!");
+		this.energyLevel = energyLevel - 5;
+	}
+
+	public void eatHumans() {
+		System.out.println("Eating a banana. Yum Yum YuM!");
+		this.energyLevel = energyLevel + 10;
+	}
+
+	public void attacktown() {
+		System.out.println("Climbing a tree now!");
+		this.energyLevel = energyLevel - 10;
+	}
+}

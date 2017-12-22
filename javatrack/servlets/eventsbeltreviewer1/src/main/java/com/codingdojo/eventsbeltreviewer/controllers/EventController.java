@@ -1,0 +1,51 @@
+package com.codingdojo.eventsbeltreviewer.controllers;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.codingdojo.eventsbeltreviewer.models.Event;
+import com.codingdojo.eventsbeltreviewer.models.User;
+import com.codingdojo.eventsbeltreviewer.services.EventService;
+
+
+
+@Controller
+public class EventController {
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		dateFormat.setLenient(false);
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+	}
+	
+	private EventService eService;
+	
+	public EventController(EventService eService) {
+        this.eService = eService;
+    }
+	
+	
+	@PostMapping("/addevent")
+    public String addEvent(@Valid @ModelAttribute("event") Event event, BindingResult result, Model model, HttpSession session, RedirectAttributes redirectAttributes) {
+        if (result.hasErrors()) {
+            return "dashboard.jsp";
+        }
+        System.out.println(event);
+        eService.saveEvent(event);
+        return "dashboard.jsp";
+    }
+	
+}

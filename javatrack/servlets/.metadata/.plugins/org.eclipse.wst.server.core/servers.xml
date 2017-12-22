@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v8.5 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v8.5 Server at localhost" name="Tomcat v8.5 Server at localhost" runtime-id="Apache Tomcat v8.5" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="16">
+    <list key="modules" value0="Setup::org.eclipse.jst.jee.server:Setup::jst.web::3.1" value1="CheckerBoard::org.eclipse.jst.jee.server:CheckerBoard::jst.web::3.1" value10="Calculator::org.eclipse.jst.jee.server:Calculator::jst.web::3.1" value2="Pets::org.eclipse.jst.jee.server:Pets::jst.web::3.1" value3="Pets2::org.eclipse.jst.jee.server:Pets2::jst.web::3.1" value4="Petsassign2::org.eclipse.jst.jee.server:Petsassign2::jst.web::3.1" value5="Petsdemo::org.eclipse.jst.jee.server:Petsdemo::jst.web::3.1" value6="Counter::org.eclipse.jst.jee.server:Counter::jst.web::3.1" value7="Randword::org.eclipse.jst.jee.server:Randword::jst.web::3.1" value8="greatnumbergame::org.eclipse.jst.jee.server:greatnumbergame::jst.web::3.1" value9="teamroster::org.eclipse.jst.jee.server:teamroster::jst.web::3.1"/>
+  </server>
+</servers>

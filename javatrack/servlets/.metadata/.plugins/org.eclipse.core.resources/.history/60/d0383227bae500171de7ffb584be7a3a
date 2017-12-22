@@ -1,0 +1,23 @@
+package com.codingdojo.javabelt2.controllers;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
+
+import com.codingdojo.javabelt2.repositories.PostRepository;
+import com.codingdojo.javabelt2.repositories.UserRepository;
+
+
+
+@Controller
+public class MainController {
+	private UserRepository userRepository;
+    private PostRepository postRepository;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    
+    
+    public MainController(UserRepository userRepository, PostRepository postRepository, BCryptPasswordEncoder bCryptPasswordEncoder)     {
+        this.userRepository = userRepository;
+        this.postRepository = postRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+}

@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title><c:out value="${ currEvent.getName() }" /></title>
+</head>
+<body>
+	<h1><c:out value="${ currEvent.getName() }" /></h1>
+	<p>Host: <c:out value="${ currEvent.getCreatedByUser().getFirstName() }" /> <c:out value="${ currEvent.getCreatedByUser().getLastName() }" /></p>
+	<p>Date: <fmt:formatDate value="${ currEvent.getEventDate() }" type = "date" dateStyle="long" /></p>
+	<p>Location: <c:out value="${ currEvent.getCity() }" /></p>
+	<p>People Who are Attending this event: <c:out value="${ currEvent.getAttendingUsers().size() }" /></p>
+	
+	
+	<table>
+	<thead>
+		<tr>
+			<td>Name: </td>
+			<td>Location: </td>
+		</tr>
+		<thead>
+		<c:forEach items = "${ currEvent.getAttendingUsers() }" var="attendingUser">
+		<tr>
+			<td><c:out value="${ attendingUser.getFirstName() }" /> <c:out value="${ attendingUser.getLastName() }" /></td>
+			<td><c:out value="${ attendingUser.getCity() }" /></td>
+		</tr>
+		</c:forEach>
+	</table>
+	<h1>Message Wall</h1>
+	<div id="messageWall"></div>
+		<c:forEach items = "${ currEvent.getMessages() }" var="message">
+			<p>Location: <c:out value="${ message.getPoster().getFirstName() }" /> says: <c:out value = "${ message.getMessage() }"/> </p>
+		</c:forEach>
+		
+		<h1>Add Message</h1>
+		<p><form:errors path="newMessage.*"/></p>
+		<form:form method="POST" action="/events/${ currEvent.getId() }/messages/add" modelAttribute="newMessage">
+			<p>
+            <form:label path="message">Message: </form:label>
+            <form:input path="message"/>
+        </p>
+        <input type="submit" value="Add Comment!"/>
+		</form:form>
+</body>
+</html>

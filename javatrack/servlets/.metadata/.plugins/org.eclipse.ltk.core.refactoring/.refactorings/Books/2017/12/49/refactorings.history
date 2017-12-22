@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;Books&apos;&#x0A;- Original project: &apos;Books&apos;&#x0A;- Original element: &apos;Books/src/main/java/com.codingdojo.books.controllers.Books.java&apos;" description="Delete element" element1="/src\/main\/java&lt;com.codingdojo.books.controllers.Books.java" element2="/src\/main\/java&lt;com.codingdojo.books.controllers.Books" element3="/src\/main\/java&lt;com.codingdojo.books.controllers" elements="3" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1512585608066" subPackages="false" version="1.0"/>
+</session>

@@ -1,0 +1,30 @@
+.container {
+	width: 1080px;
+	margin: 0 auto;
+}
+
+.inline-block {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+h1 {
+	margin-right: 100px;
+}
+
+li {
+	display: inline;
+	border-right: 1.5px solid black;
+	padding: 0 10px;
+}
+
+li:last-child {
+	border-right: none;
+}
+
+.box {
+	padding: 20px;
+	border: 2px solid black;
+	height: 200px;
+	width: 80%;
+}

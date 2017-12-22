@@ -1,0 +1,55 @@
+body {
+    text-align: center;
+}
+
+button {
+    width: 25px;
+    height: 25px;
+}
+
+div#interface, div#results {
+    margin-top: 50px;
+    display: inline-block;
+    vertical-align: top;
+    width: 150px;
+    border: 1px solid black;
+    padding-bottom: 30px;
+}
+
+#interface {
+    margin-right: 100px;
+}
+
+#inputs {
+    margin: 15px auto;
+    width: 90%;
+    height: 20px;
+    border: 1px solid black;
+}
+
+ul {
+    padding: 0;
+}
+
+ul#number-pad {
+	margin: 0 auto;
+}
+
+
+#number-pad li{
+    display: inline;
+}
+
+ul#result-items {
+  	text-align: left;
+	list-style-type: none;
+	padding-left: 20px;
+}
+
+.space-right {
+    margin-right: 29px;
+}
+
+p {
+  font-size: small;
+}

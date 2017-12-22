@@ -1,0 +1,31 @@
+package com.codingdojo.poolrental.models;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(name="pools")
+public class Pool {
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	@Size(min=1, message="Address cannot be blank")
+	private String adddress;
+	
+	
+	@Size(min=1, message="Description cannot be blank")
+	private String description;
+	
+	@Size(min=1, message="Size cannot be blank")
+	private String size;
+	
+	@Min(0)
+	private Double cost;
+	
+	
+}

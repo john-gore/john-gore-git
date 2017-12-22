@@ -1,0 +1,7 @@
+class Human extends Mammal {
+    
+	public void startSleeping() {
+        System.out.println("Toss and turn");
+        super.startSleeping();
+    }
+}

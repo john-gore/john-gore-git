@@ -1,0 +1,15 @@
+package com.codingdojo.javabelt1.services;
+
+import org.springframework.stereotype.Service;
+
+import com.codingdojo.javabelt1.models.Subscription;
+import com.codingdojo.javabelt1.repositories.SubscriptionRepository;
+
+@Service
+public class SubscriptionService {
+	private SubscriptionRepository subRepo;
+	
+	public void save(Subscription subscription) {
+		subRepo.save(subscription);
+	}
+}

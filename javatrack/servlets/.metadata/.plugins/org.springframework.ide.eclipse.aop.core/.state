@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="dojo"/>
+<aop-project name="overflow"/>
+<aop-project name="product"/>
+<aop-project name="Lookify"/>
+<aop-project name="login_reg"/>
+<aop-project name="javabelt2"/>
+</aop-reference-model>

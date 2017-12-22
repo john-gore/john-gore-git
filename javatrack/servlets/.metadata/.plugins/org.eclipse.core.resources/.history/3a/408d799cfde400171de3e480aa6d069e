@@ -1,0 +1,70 @@
+package com.codingdojo.javabelt1.services;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.codingdojo.javabelt1.models.Subscription;
+import com.codingdojo.javabelt1.models.User;
+import com.codingdojo.javabelt1.repositories.RoleRepository;
+import com.codingdojo.javabelt1.repositories.SubscriptionRepository;
+import com.codingdojo.javabelt1.repositories.UserRepository;
+
+
+@Service
+public class UserService {
+    private UserRepository userRepository;
+    private RoleRepository roleRepository;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private SubscriptionRepository subRepo;
+    
+    public UserService(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder,
+    		SubscriptionRepository SubRepo)     {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.subRepo = subRepo;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+    
+    
+    // 1
+    public void saveWithUserRole(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setRoles(roleRepository.findByName("ROLE_USER"));
+        userRepository.save(user);
+    }
+     
+     // 2 
+    public void saveUserWithAdminRole(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setRoles(roleRepository.findByName("ROLE_ADMIN"));
+        userRepository.save(user);
+    }    
+    
+    // 3
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+    
+    public void updateUser(Date startDate, User loggedUser) {
+    			System.out.println("Made it past save1");
+	    		loggedUser.setStartDate(startDate);
+	    		System.out.println("Made it past save2");
+//	    		loggedUser.setSubscription(subscriptionName);
+	    		System.out.println("Made it past save3");
+    			userRepository.save(loggedUser);
+    			System.out.println("Made it past save4");
+    }
+    
+    public List<User> findAll() {
+		return userRepository.findAll();
+	}
+
+
+	public List<User> findAllExcept(User loggedUser) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

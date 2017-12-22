@@ -1,0 +1,10 @@
+package com.codingdojo.javabelt1.repositories;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.codingdojo.javabelt1.models.Subscription;
+
+
+public interface SubscriptionRepository extends CrudRepository<Subscription, Long>{
+
+}

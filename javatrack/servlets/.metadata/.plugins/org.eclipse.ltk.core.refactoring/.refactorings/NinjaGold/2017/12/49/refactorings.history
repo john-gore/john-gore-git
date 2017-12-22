@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;NinjaGold/src/main/webapp/WEB-INf&apos; to &apos;WEB-INF&apos;" description="Rename resource &apos;WEB-INf&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/WEB-INf" name="WEB-INF" stamp="1512490749260" updateReferences="true"/>&#x0A;<refactoring accessors="true" comment="Delete element from project &apos;NinjaGold&apos;&#x0A;- Original project: &apos;NinjaGold&apos;&#x0A;- Original element: &apos;WEB-INF&apos;" description="Delete element" element1="src/main/webapp/WEB-INF" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1512490894389" subPackages="false" version="1.0"/>
+</session>
